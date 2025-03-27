@@ -64,7 +64,7 @@
     --secondary-foreground: 0 0% 98%;
     
     --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted-foreground: 240 5% 74.9%; /* Increased brightness for better visibility */
     
     --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
@@ -100,6 +100,22 @@
   html {
     @apply scroll-smooth;
   }
+
+  /* Improve text visibility on scroll */
+  section {
+    @apply relative z-10 backdrop-blur-none;
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-foreground;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    @apply text-foreground/90;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
 }
 
 @layer utilities {
@@ -108,11 +124,14 @@
   }
   
   .dark .glass-effect {
-    @apply backdrop-blur-md bg-black/20 border border-white/10;
+    @apply backdrop-blur-md bg-black/30 border border-white/10;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   }
   
   .section-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20;
+    position: relative;
+    z-index: 10;
   }
   
   .text-balance {
@@ -125,6 +144,12 @@
   
   .gradient-heading {
     @apply bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent;
+    text-shadow: none;
+  }
+
+  /* Improved text contrast for better readability */
+  .improved-contrast {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -153,4 +178,26 @@ html {
 }
 .animation-delay-600 {
   animation-delay: 0.6s;
+}
+
+/* Ensure section backgrounds have proper contrast with text */
+section {
+  position: relative;
+  z-index: 1;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}
+
+.dark section::before {
+  background-color: rgba(0, 0, 0, 0.2);
 }

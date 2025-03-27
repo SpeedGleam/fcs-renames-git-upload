@@ -10,6 +10,9 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   useEffect(() => {
+    // Set dark mode by default
+    document.documentElement.classList.add("dark");
+    
     // Smooth scroll handling for hash links
     const handleHashLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -32,9 +35,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <Features />
         <Showcase />
