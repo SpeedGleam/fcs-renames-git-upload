@@ -15,6 +15,7 @@
     "axios": "^1.8.1",
     "graphql": "^16.10.0",
     "https-proxy-agent": "^6.0.1",
+    "lovable-tagger": "^1.1.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.29.0"
