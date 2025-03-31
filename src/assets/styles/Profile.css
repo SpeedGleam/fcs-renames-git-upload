@@ -1,0 +1,37 @@
+.profile-picture-preview {
+  /* Center container horizontally */
+  margin: 0 auto;
+
+  /* Set a max width in pixels and responsive width */
+  max-width: 300px;
+  width: 100%;
+
+  /* Use flexbox for centering image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* Optional styling */
+  padding: 3px;
+  /* Lighter border for a thinner appearance */
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture-preview img {
+  /* Ensure the image scales and maintains aspect ratio */
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1px;
+}
+
+.verified-text {
+  color: green;
+}
+
+.unverified-text {
+  color: red;
+}
